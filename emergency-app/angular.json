@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "emergency-app"
+    }
+  },
+  "defaultProject": "emergency-app",
+  "cli": {
+    "analytics": "8106a450-b6b3-4a99-806d-a29aa204e58a"
+  }
 }
