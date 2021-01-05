@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-ui',
@@ -11,15 +12,16 @@ export class MainUiComponent implements OnInit {
     {
       libelle: 'MAP',
       link: '/map-simulator'
-    }, {
-      libelle: 'DECONNEXION',
-      link: 'login'
     }
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut(): void {
+    this.router.navigate(['login'])
   }
 
 }
