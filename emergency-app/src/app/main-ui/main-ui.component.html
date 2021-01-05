@@ -1,1 +1,14 @@
-<p>main-ui works!</p>
+<div class="uk-grid" style="height: 100vh">
+    <div class="uk-width-1-6 uk-card uk-card-default">
+        <div class="uk-width-1-1 logo"><b>EMERGENCY MANAGER</b></div>
+        <div class="menu-item" *ngFor="let item of menuItems" [routerLink]="[item.link]">
+            {{item.libelle}}
+        </div>
+        <div class="menu-item" (click)="logOut()">
+            DECONNEXION
+        </div>
+    </div>
+    <div class="uk-width-expand uk-margin-medium-right" style="background-color: rgb(255, 255, 250)">
+        <router-outlet></router-outlet>
+    </div>
+</div>
