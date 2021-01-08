@@ -6,7 +6,11 @@
             </div>
             <hr class="uk-divider-icon">
             <div class="uk-margin-medium">
-                <input class="uk-input" type="text" placeholder="Mot de passe">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="password" placeholder="Mot de passe" [(ngModel)]="password">
+                </div>
+                <div style="color: red" *ngIf="passError">Impossible de se connecter : Mot de passe erroné</div>
             </div>
             <button class="uk-button uk-button-primary uk-width-1-1" (click)="login()">SE CONNECTER</button>
         </div>

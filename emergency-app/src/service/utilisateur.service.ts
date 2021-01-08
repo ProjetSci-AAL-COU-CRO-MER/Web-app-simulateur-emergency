@@ -7,9 +7,10 @@ import { environment } from '../environments/environment';
 })
 
 export class UtilisateurService {
+
   constructor(private http: HttpClient) {}
 
-  public getInstance() {
-    return this.http.get(`${environment.urlAPI}/utilisateur/getInstance`);
+  public login(data) {
+    return this.http.post(`${environment.urlAPI}/utilisateur/login`, data);
   }
 }
