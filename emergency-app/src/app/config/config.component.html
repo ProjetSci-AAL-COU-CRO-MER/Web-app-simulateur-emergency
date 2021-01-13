@@ -24,7 +24,7 @@
                         <td>{{item.longitude}}</td>
                         <td>{{item.rayon_km}}</td>
                         <td>{{item.b_actif ? 'OUI' : 'NON'}}</td>
-                        <td><button class="uk-button uk-button-default" *ngIf="!item.b_actif" (click)="activeOneConfig(item.id)">ACTIVER</button></td>
+                        <td><button class="uk-button uk-button-default" *ngIf="!item.b_actif" (click)="activeOneConfig(item.id)">ACTIVER</button><button class="uk-button uk-button-default" style="margin-left: 16px;" *ngIf="!item.b_actif" (click)="deleteConfig(item.id)">SUPPRIMER</button></td>
                     </tr>
                 </tbody>
             </table>

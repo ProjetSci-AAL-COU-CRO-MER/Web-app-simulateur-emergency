@@ -40,4 +40,11 @@ export class ConfigComponent implements OnInit {
     });
   }
 
+  deleteConfig(id) {
+    console.log(id);
+    this.ConfService.deleteConfig(id).subscribe(el => {
+      this.loadData();
+    });
+  }
+
 }

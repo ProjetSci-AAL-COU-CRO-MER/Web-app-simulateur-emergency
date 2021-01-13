@@ -5,6 +5,7 @@
         </div>
         <div class="uk-card-body">
             <h4>Localisation</h4>
+            <button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #modal-example">AJOUTER</button>
             <table class="uk-table uk-table-striped">
                 <thead>
                     <tr>
@@ -23,10 +24,32 @@
                         <td>{{item.longitude}}</td>
                         <td>{{item.rayon_km}}</td>
                         <td>{{item.b_actif ? 'OUI' : 'NON'}}</td>
-                        <td><button class="uk-button uk-button-default" *ngIf="!item.b_actif">ACTIVER</button></td>
+                        <td><button class="uk-button uk-button-default" *ngIf="!item.b_actif" (click)="activeOneConfig(item.id)">ACTIVER</button><button class="uk-button uk-button-default" style="margin-left: 16px;" *ngIf="!item.b_actif" (click)="deleteConfig(item.id)">SUPPRIMER</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
+
+<!-- This is the modal -->
+<div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">AJOUT D'UNE CONFIGURATION</h2>
+        <div class="uk-grid uk-margin">
+            <div>
+                <input class="uk-input" type="number" placeholder="Latitude" [(ngModel)]="newData.latitude">
+            </div>
+            <div>
+                <input class="uk-input" type="number" placeholder="Longitude" [(ngModel)]="newData.longitude">
+            </div>
+        </div>
+        <div class="uk-grid uk-margin">
+            <div>
+                <input class="uk-input" type="number" placeholder="Rayon (Km)" [(ngModel)]="newData.rayon_km">
+            </div>
+        </div>
+        <button class="uk-button uk-button-primary uk-margin-small-right uk-modal-close" type="button" (click)="addConfig()">SAUVEGARDER</button>
+        <button class="uk-button uk-button-danger uk-margin-small-right uk-modal-close" type="button" (click)="newData={}">ANNULER</button>
     </div>
 </div>

@@ -31,4 +31,9 @@ export class ConfigMapService {
     return this.http.get(`${environment.urlAPI}/config-pos-geo/desactive/${id}`);
   }
 
+  public deleteConfig(id): any {
+    console.log(id);
+    return this.http.get(`${environment.urlAPI}/config-pos-geo/delete/${id}`);
+  }
+
 }
