@@ -14,6 +14,10 @@ export class MainUiComponent implements OnInit {
     {
       libelle: 'MAP',
       link: '/map-emergency'
+    },
+    {
+      libelle: 'PARAMÈTRE',
+      link: '/config'
     }
   ]
 
