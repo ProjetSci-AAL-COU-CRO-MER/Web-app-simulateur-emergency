@@ -8,13 +8,15 @@ import { MapComponent } from './map/map.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainUiComponent,
     MapComponent,
-    LoginComponent
+    LoginComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

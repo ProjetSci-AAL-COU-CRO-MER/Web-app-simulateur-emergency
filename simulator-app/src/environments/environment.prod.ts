@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlAPI: 'http://127.0.0.1:3000/simulator-api'
 };

@@ -12,6 +12,9 @@ export class MainUiComponent implements OnInit {
     {
       libelle: 'MAP',
       link: '/map-simulator'
+    },{
+      libelle: 'PARAMÈTRE',
+      link: '/config'
     }
   ]
 
