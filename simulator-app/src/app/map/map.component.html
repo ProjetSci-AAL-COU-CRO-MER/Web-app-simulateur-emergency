@@ -1,6 +1,6 @@
 <div class="uk-margin-medium-top uk-child-width-auto uk-grid">
-    <label><input class="uk-checkbox" type="checkbox" checked> Feux</label>
-    <label><input class="uk-checkbox" type="checkbox"> Casernes</label>
-    <label><input class="uk-checkbox" type="checkbox"> Camions</label>
+    <label><input class="uk-checkbox" type="checkbox" [(ngModel)]="filter.incident"> Feux</label>
+    <label><input class="uk-checkbox" type="checkbox"> Vehicules</label>
 </div>
+<button class="uk-button uk-button-default uk-margin-top" (click)="display()">APPLIQUER FILTRES</button>
 <div class="uk-margin-medium-top" id="mapid"></div>
