@@ -10,7 +10,7 @@ export class UtilisateurService {
 
   constructor(private http: HttpClient) {}
 
-  public login(data) {
+  public login(data): any {
     return this.http.post(`${environment.urlAPI}/utilisateur/login`, data);
   }
 }

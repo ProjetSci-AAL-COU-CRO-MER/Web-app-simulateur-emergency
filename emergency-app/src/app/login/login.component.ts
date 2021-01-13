@@ -22,11 +22,13 @@ export class LoginComponent implements OnInit {
 
   async login() {
     const salt = "lama";
+    console.log(this.password);
     const dataToSend = {
       passwordHached: sha256(this.password+salt)
     };
     await this.utilisateurService.login(dataToSend).subscribe(el => {
-      if (el) {
+      if (el.pass) {
+        localStorage.setItem('token', el.token);
         this.router.navigate(['map-emergency'])
       } else {
         this.passError = true;
