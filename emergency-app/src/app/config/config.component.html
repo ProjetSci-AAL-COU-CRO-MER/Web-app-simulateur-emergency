@@ -1,0 +1,32 @@
+<div class="uk-margin-medium-top">
+    <div class="uk-card uk-card-default">
+        <div class='uk-card-header' style="background-color: lightslategray;">
+            <h3 style="color: whitesmoke"><b>PARAMÈTRE</b></h3>
+        </div>
+        <div class="uk-card-body">
+            <h4>Localisation</h4>
+            <table class="uk-table uk-table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Rayon d'action (Km)</th>
+                        <th>Actif ?</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listConfig">
+                        <td>{{item.id}}</td>
+                        <td>{{item.latitude}}</td>
+                        <td>{{item.longitude}}</td>
+                        <td>{{item.rayon_km}}</td>
+                        <td>{{item.b_actif ? 'OUI' : 'NON'}}</td>
+                        <td><button class="uk-button uk-button-default" *ngIf="!item.b_actif">ACTIVER</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

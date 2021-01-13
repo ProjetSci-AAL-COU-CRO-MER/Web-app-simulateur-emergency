@@ -14,4 +14,8 @@ export class ConfigMapService {
     return this.http.get(`${environment.urlAPI}/config-pos-geo`);
   }
 
+  public getAllConfig(): any {
+    return this.http.get(`${environment.urlAPI}/config-pos-geo/all`);
+  }
+
 }
