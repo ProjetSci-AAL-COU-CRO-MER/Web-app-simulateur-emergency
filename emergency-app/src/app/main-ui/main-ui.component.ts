@@ -18,9 +18,13 @@ export class MainUiComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+    }
   }
   
   logOut(): void {
+    localStorage.removeItem('token');
     this.router.navigate(['login'])
   }
 

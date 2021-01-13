@@ -18,9 +18,13 @@ export class MainUiComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+    }
   }
 
   logOut(): void {
+    localStorage.removeItem('token');
     this.router.navigate(['login'])
   }
 
