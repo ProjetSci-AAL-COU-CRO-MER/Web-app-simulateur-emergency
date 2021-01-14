@@ -1,0 +1,37 @@
+<div class="uk-margin-medium-top">
+    <div class="uk-card uk-card-default">
+        <div class='uk-card-header' style="background-color: lightslategray;">
+            <h3 style="color: whitesmoke"><b>{{data.nom}}</b></h3>
+        </div>
+        <div class="uk-card-body">
+            <ul class="uk-tab" data-uk-tab="{connect:'#my-id'}">
+                <li><a href="">INFORMATIONS</a></li>
+                <li><a href="">VÉHICULES</a></li>
+              </ul>
+              <ul id="my-id" class="uk-switcher uk-margin">
+                <li><a href="#" id="autoplayer" data-uk-switcher-item="next"></a>
+                    <div class="uk-grid uk-margin">
+                        <div class="uk-width-expand">
+                            <input class="uk-input" type="text" placeholder="Nom" [(ngModel)]="data.nom" disabled>
+                        </div>
+                        <div class="uk-width-expand">
+                            <select class="uk-select" [(ngModel)]="data.id_etablissement_type" disabled>
+                                <option *ngFor="let type of listTypeEtablissement" [value]="type.id">{{ type.libelle }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-margin">
+                        <div class="uk-width-expand">
+                            <input class="uk-input" type="number" placeholder="Latitude" [(ngModel)]="data.latitude" disabled>
+                        </div>
+                        <div class="uk-width-expand">
+                            <input class="uk-input" type="number" placeholder="Longitude" [(ngModel)]="data.longitude" disabled>
+                        </div>
+                    </div>
+                    <div class="uk-margin-medium-top" id="mapid"></div>
+                </li>
+                <li><app-etablissement-vehicule></app-etablissement-vehicule></li>
+              </ul>
+        </div>
+    </div>
+</div>
