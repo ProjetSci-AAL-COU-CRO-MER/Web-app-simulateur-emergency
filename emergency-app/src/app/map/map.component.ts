@@ -12,11 +12,7 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
-  public filter = {
-    incident: true,
-    etablissement: false,
-    vehicule: false,
-  }
+  public filter: any = {};
   public map;
   public markers = {
     incident: null,
@@ -39,6 +35,12 @@ export class MapComponent implements OnInit {
         vehicule: L.layerGroup().addTo(this.map)
       }
     });
+
+    this.filter = {
+      incident: true,
+      etablissement: false,
+      vehicule: false,
+    }
     this.display();
   }
 
@@ -48,16 +50,19 @@ export class MapComponent implements OnInit {
   }
 
   public display() {
+    console.log(this.filter);
     for (let el in this.filter) {
+      this.markers[el].clearLayers();
+      console.log(el);
+      console.log(this.filter[el]);
       if (this.filter[el]) {
         this.getList(el);
-      } else {
-        this.markers[el].clearLayers()
       }
     }
   }
 
   private getList(element) {
+    console.log('test');
     switch(element) {
       case 'incident':
         this.incidentService.getList().subscribe(data => {
