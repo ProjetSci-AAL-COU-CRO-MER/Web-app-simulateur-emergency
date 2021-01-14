@@ -62,7 +62,6 @@ export class MapComponent implements OnInit {
   }
 
   private getList(element) {
-    console.log('test');
     switch(element) {
       case 'incident':
         this.incidentService.getList().subscribe(data => {
@@ -78,7 +77,7 @@ export class MapComponent implements OnInit {
         this.etablissementService.getList().subscribe(data => {
           if (data) {
             data.forEach(el => {
-              let popup = `<b>${el.nom}</b><br>${el.libelle}<br><br><b>Latitude</b> : ${el.latitude}<br><b>Longitude</b> : ${el.longitude}`
+              let popup = `<b>${el.nom}</b><br>${el.etablissement_type}<br><br><b>Latitude</b> : ${el.latitude}<br><b>Longitude</b> : ${el.longitude}`
               this.markers.etablissement.addLayer(L.marker([el.latitude, el.longitude], {icon: L.icon({iconUrl: '../../assets/icon/fire-station.png'})}).bindPopup(popup).addTo(this.map));
             });
           }
