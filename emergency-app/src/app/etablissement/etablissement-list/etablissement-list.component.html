@@ -1,0 +1,75 @@
+<div class="uk-margin-medium-top">
+    <div class="uk-card uk-card-default">
+        <div class='uk-card-header' style="background-color: lightslategray;">
+            <h3 style="color: whitesmoke"><b>LISTE DES ÉTABLISSEMENTS</b></h3>
+        </div>
+        <div class="uk-card-body">
+            <button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #new-etablissement">AJOUTER</button>
+            <table class="uk-table uk-table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Type d'établissement</th>
+                        <th>Longitude</th>
+                        <th>Latitude</th>
+                        <th>Nombre de camions</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listEtablissement">
+                        <td>{{item.id}}</td>
+                        <td>{{item.nom}}</td>
+                        <td>{{item.etablissement_type}}</td>
+                        <td>{{item.latitude}}</td>
+                        <td>{{item.longitude}}</td>
+                        <td>{{item.nb_vehicule}}</td>
+                        <td>
+                            <button class="uk-button uk-button-default" *ngIf="!item.b_actif" routerLink="{{'/etablissement/'+item.id}}"><span uk-icon="table"></span></button>
+                            <button class="uk-button uk-button-default" style="margin-left: 16px;" (click)="deletedEtablissementId=item.id" uk-toggle="target: #delete-etablissement"><span uk-icon="trash"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="new-etablissement" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <h2 class="uk-modal-title">NOUVEL ÉTABLISSEMENT</h2>
+        <div class="uk-grid uk-margin">
+            <div class="uk-width-expand">
+                <input class="uk-input" type="text" placeholder="Nom" [(ngModel)]="newEtablissementData.nom">
+            </div>
+            <div class="uk-width-expand">
+                <select class="uk-select" [(ngModel)]="newEtablissementData.id_etablissement_type">
+                    <option *ngFor="let type of listTypeEtablissement" [value]="type.id">{{ type.libelle }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="uk-grid uk-margin">
+            <div class="uk-width-expand">
+                <input class="uk-input" type="number" placeholder="Latitude" [(ngModel)]="newEtablissementData.latitude">
+            </div>
+            <div class="uk-width-expand">
+                <input class="uk-input" type="number" placeholder="Longitude" [(ngModel)]="newEtablissementData.longitude">
+            </div>
+        </div>
+        <button class="uk-button uk-button-primary uk-margin-small-right uk-modal-close" type="button" (click)="addEtablissement()">SAUVEGARDER</button>
+        <button class="uk-button uk-button-default uk-margin-small-right uk-modal-close" type="button" (click)="newEtablissementData={}">ANNULER</button>
+    </div>
+</div>
+
+
+<div id="delete-etablissement" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <h2 class="uk-modal-title">SUPRESSION D'UN ÉTABLISSEMENT</h2>
+        <div class="uk-grid uk-margin">
+            <p>Êtes-vous sûr de vouloir supprimer cet établissement ?</p>
+        </div>
+        <button class="uk-button uk-button-danger uk-margin-small-right uk-modal-close" type="button" (click)="deleteEtablissement(deletedEtablissementId)">SUPPRIMER</button>
+        <button class="uk-button uk-button-default uk-margin-small-right uk-modal-close" type="button" (click)="deletedEtablissementId=null">ANNULER</button>
+    </div>
+</div>

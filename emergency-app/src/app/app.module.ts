@@ -9,6 +9,9 @@ import { MapComponent } from './map/map.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ConfigComponent } from './config/config.component';
+import { EtablissementListComponent } from './etablissement/etablissement-list/etablissement-list.component';
+import { EtablissementMainComponent } from './etablissement/etablissement-main/etablissement-main.component';
+import { EtablissementVehiculeComponent } from './etablissement/etablissement-vehicule/etablissement-vehicule.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ConfigComponent } from './config/config.component';
     MainUiComponent,
     MapComponent,
     LoginComponent,
-    ConfigComponent
+    ConfigComponent,
+    EtablissementListComponent,
+    EtablissementMainComponent,
+    EtablissementVehiculeComponent
   ],
   imports: [
     BrowserModule,

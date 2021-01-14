@@ -1,0 +1,57 @@
+<button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #new-etablissement">AJOUTER UN VÉHICULE</button>
+<table class="uk-table uk-table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Type de Véhicule</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>État du Véhicule</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listVehicule">
+            <td>{{item.id}}</td>
+            <td>{{item.nom}}</td>
+            <td>{{item.vehicule_type}}</td>
+            <td>{{item.latitude}}</td>
+            <td>{{item.longitude}}</td>
+            <td>{{item.vehicule_etat}}</td>
+            <td>
+                <button class="uk-button uk-button-default" style="margin-left: 16px;" (click)="deletedVehiculeId=item.id" uk-toggle="target: #delete-etablissement"><span uk-icon="trash"></span></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="new-etablissement" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <h2 class="uk-modal-title">NOUVEAU VÉHICULE</h2>
+        <div class="uk-grid uk-margin">
+            <div class="uk-width-expand">
+                <input class="uk-input" type="text" placeholder="Nom" [(ngModel)]="newVehiculeData.nom">
+            </div>
+            <div class="uk-width-expand">
+                <select class="uk-select" [(ngModel)]="newVehiculeData.id_vehicule_type">
+                    <option *ngFor="let type of listTypeVehicule" [value]="type.id">{{ type.libelle+' ('+type.code+')' }}</option>
+                </select>
+            </div>
+        </div>
+        <button class="uk-button uk-button-primary uk-margin-small-right uk-modal-close" type="button" (click)="addVehicule()">SAUVEGARDER</button>
+        <button class="uk-button uk-button-default uk-margin-small-right uk-modal-close" type="button" (click)="newVehiculeData={}">ANNULER</button>
+    </div>
+</div>
+
+
+<div id="delete-etablissement" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <h2 class="uk-modal-title">SUPRESSION D'UN VÉHICULE</h2>
+        <div class="uk-grid uk-margin">
+            <p>Êtes-vous sûr de vouloir supprimer ce véhicule ?</p>
+        </div>
+        <button class="uk-button uk-button-danger uk-margin-small-right uk-modal-close" type="button" (click)="deleteVehicule(deletedVehiculeId)">SUPPRIMER</button>
+        <button class="uk-button uk-button-default uk-margin-small-right uk-modal-close" type="button" (click)="deletedVehiculeId=null">ANNULER</button>
+    </div>
+</div>
